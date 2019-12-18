@@ -116,13 +116,6 @@ while not done:
         comp = True
         streak = 1
     #end of loop
-    print("saving")
-    save(score, "score")
-    save(playerx,"playerx")
-    save(playery,"playery")
-    save(flagx,"flagx")
-    save(flagy,"flagy")
-    saveall()
     pygame.display.update()
     clock.tick(60)
 
