@@ -76,6 +76,6 @@ while not done3:
     clock.tick(60)
 
 
-loadcreatesave((text),choice,{"bomb1x":0,"bomb1y":0,"bomb2x":0,"bomb2y":0,"score":0,"playerx": 0,"playery": 0,"flagx":0,"flagy":0,"startx":0,"starty":0,"complete":True})
+loadcreatesave((text),choice,{"streak":1,"bomb1x":0,"bomb1y":0,"bomb2x":0,"bomb2y":0,"score":0,"playerx": 0,"playery": 0,"flagx":0,"flagy":0,"startx":0,"starty":0,"complete":True})
 
 save = config["save"]
