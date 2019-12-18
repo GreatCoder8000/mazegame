@@ -38,7 +38,7 @@ s = False
 d = False
 createmaze.createmaze()
 comp = False
-streak = 1
+streak = int(loadvar("streak"))
 playerx = int(loadvar("playerx"))
 playery = int(loadvar("playery"))
 flagx = int(loadvar("flagx"))
@@ -50,6 +50,7 @@ bomb2x = int(loadvar("bomb2x"))
 bomb2y = int(loadvar("bomb2y"))
 while not done:
     if comp == True:
+        save(streak,"streak")
         save(playerx,"playerx")
         save(playery,"playery")
         save(flagx,"flagx")
@@ -70,6 +71,7 @@ while not done:
         bomb1y = int(loadvar("bomb1y"))
         bomb2x = int(loadvar("bomb2x"))
         bomb2y = int(loadvar("bomb2y"))
+        streak = int(loadvar("streak"))
     screen.fill(WHITE)
     #start of loop
     scoret = mediumfont.render("score = "+str(score)+" streak = "+str(streak), False, (255, 0, 0))
