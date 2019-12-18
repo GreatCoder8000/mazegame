@@ -59,7 +59,6 @@ while not done:
         save(bomb2x, "bomb2x")
         save(bomb2y, "bomb2y")
         save(score, "score")
-        save(complete,"complete")
         createmaze.createmaze()
         comp = False
         playerx = int(loadvar("playerx"))
