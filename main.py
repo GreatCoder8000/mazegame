@@ -50,6 +50,16 @@ bomb2x = int(loadvar("bomb2x"))
 bomb2y = int(loadvar("bomb2y"))
 while not done:
     if comp == True:
+        save(playerx,"playerx")
+        save(playery,"playery")
+        save(flagx,"flagx")
+        save(flagy,"flagy")
+        save(bomb1x, "bomb1x")
+        save(bomb1y, "bomb1y")
+        save(bomb2x, "bomb2x")
+        save(bomb2y, "bomb2y")
+        save(score, "score")
+        save(complete,"complete")
         createmaze.createmaze()
         comp = False
         playerx = int(loadvar("playerx"))
