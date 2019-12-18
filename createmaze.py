@@ -22,6 +22,7 @@ def createmaze():
     flag = pygame.Rect(flagx, flagy, 50, 50)
     bomb1 = pygame.Rect(bomb1x, bomb1y, 50, 50)
     bomb2 = pygame.Rect(bomb2x, bomb2y, 50, 50)
+    player=pygame.Rect(playery,playerx,50,50)
     while flag.colliderect(bomb1) or player.colliderect(bomb1):
         bomb1x = random.randint(0, 800)
         bomb1y = random.randint(0, 600)
