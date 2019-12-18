@@ -26,9 +26,11 @@ def createmaze():
     while flag.colliderect(bomb1) or player.colliderect(bomb1):
         bomb1x = random.randint(0, 800)
         bomb1y = random.randint(0, 600)
+        bomb1 = pygame.Rect(bomb1x, bomb1y, 50, 50)
     while flag.colliderect(bomb2) or player.colliderect(bomb2):
         bomb2x = random.randint(0, 800)
         bomb2y = random.randint(0, 600)
+        bomb2 = pygame.Rect(bomb2x, bomb2y, 50, 50)
     print("one point gained")
     save(playerx,"playerx")
     save(playery,"playery")
