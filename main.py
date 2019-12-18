@@ -39,6 +39,15 @@ d = False
 createmaze.createmaze()
 comp = False
 streak = 1
+playerx = int(loadvar("playerx"))
+playery = int(loadvar("playery"))
+flagx = int(loadvar("flagx"))
+flagy = int(loadvar("flagy"))
+score = int(loadvar("score"))
+bomb1x = int(loadvar("bomb1x"))
+bomb1y = int(loadvar("bomb1y"))
+bomb2x = int(loadvar("bomb2x"))
+bomb2y = int(loadvar("bomb2y"))
 while not done:
     if comp == True:
         createmaze.createmaze()
