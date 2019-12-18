@@ -39,7 +39,6 @@ d = False
 createmaze.createmaze()
 comp = False
 streak = 1
-saving = 0
 while not done:
     if comp == True:
         createmaze.createmaze()
@@ -117,16 +116,13 @@ while not done:
         comp = True
         streak = 1
     #end of loop
-    saving +=1
-    if saving >= 60:
-        print("saving")
-        save(score, "score")
-        save(playerx,"playerx")
-        save(playery,"playery")
-        save(flagx,"flagx")
-        save(flagy,"flagy")
-        saveall()
-        save = 0
+    print("saving")
+    save(score, "score")
+    save(playerx,"playerx")
+    save(playery,"playery")
+    save(flagx,"flagx")
+    save(flagy,"flagy")
+    saveall()
     pygame.display.update()
     clock.tick(60)
 
