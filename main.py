@@ -38,6 +38,7 @@ s = False
 d = False
 createmaze.createmaze()
 comp = False
+streak = 1
 while not done:
     if comp == True:
         createmaze.createmaze()
@@ -53,8 +54,8 @@ while not done:
     bomb1y = int(loadvar("bomb1y"))
     bomb2x = int(loadvar("bomb2x"))
     bomb2y = int(loadvar("bomb2y"))
-    scoret = mediumfont.render("score = "+str(score), False, (255, 0, 0))
-    scorebox = pygame.Rect(300, 200, 50, 50)
+    scoret = mediumfont.render("score = "+str(score)+" streak = "+str(streak), False, (255, 0, 0))
+    scorebox = pygame.Rect(50, 50, 50, 50)
     screen.blit(scoret,scorebox)
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
@@ -100,17 +101,20 @@ while not done:
     screen.blit(bomb,bomb1)
     screen.blit(bomb, bomb2)
     if player.colliderect(flag):
-        score+=1
+        score+=streak
+        streak+=1
         print("collided")
         comp = True
     if player.colliderect(bomb1):
-        score-=10
+        score-=5
         print("collided")
         comp = True
+        streak = 1
     if player.colliderect(bomb2):
-        score-=10
+        score-=5
         print("collided")
         comp = True
+        streak = 1
     #end of loop
     print("saving")
     save(score, "score")
