@@ -97,13 +97,13 @@ while not done:
             if event.key == pygame.K_d:
                 d = False
     if w == True:
-        playerx-=10
+        playerx-=5
     if a == True:
-        playery-=10
+        playery-=5
     if s == True:
-        playerx+=10
+        playerx+=5
     if d == True:
-        playery+=10
+        playery+=5
     if playerx <= 0:
         playerx =0
     if playerx >= 600:
@@ -137,5 +137,5 @@ while not done:
         streak = 1
     #end of loop
     pygame.display.update()
-    clock.tick(60)
+    clock.tick(180)
 
