@@ -67,9 +67,6 @@ while not done:
         streak = int(loadvar("streak"))
     screen.fill(WHITE)
     #start of loop
-    scoret = mediumfont.render("score = "+str(score)+" streak = "+str(streak), False, (255, 0, 0))
-    scorebox = pygame.Rect(50, 50, 50, 50)
-    screen.blit(scoret,scorebox)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -136,6 +133,9 @@ while not done:
                 streak = 1
     screen.blit(flagimage,flag)
     screen.blit(turtle,player)
+    scoret = mediumfont.render("score = " + str(score) + " streak = " + str(streak), False, (255, 0, 0))
+    scorebox = pygame.Rect(50, 50, 50, 50)
+    screen.blit(scoret, scorebox)
     if player.colliderect(flag):
         score+=streak
         if addstreak == True:
