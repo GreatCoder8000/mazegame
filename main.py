@@ -125,8 +125,10 @@ while not done:
         score+=streak
         if addstreak == True:
             streak+=1
+            addstreak = False
         else:
             streak+=0
+            addstreak = True
         print("collided")
         comp = True
     if player.colliderect(bomb1):
