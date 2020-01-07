@@ -107,7 +107,7 @@ while not done:
         playery = 800
     player=pygame.Rect(playery,playerx,50,50)
     flag=pygame.Rect(flagx,flagy,50,50)
-    numberofbombs = round(score / 100) + 1
+    numberofbombs = round(score / 50) + 1
     if score <= 0:
         numberofbombs = 0
     if numberofbombs == 1:

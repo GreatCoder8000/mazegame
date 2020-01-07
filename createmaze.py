@@ -11,7 +11,7 @@ def createmaze():
     score = int(loadvar("score"))
     bombs = loadlist("bombs")
     complete =bool(loadvar("complete"))
-    numberofbombs = round(score/100)+1
+    numberofbombs = round(score/25)+1
     if score <= 0:
         numberofbombs = 0
     flagx = random.randint(0,750)
