@@ -32,6 +32,7 @@ time.sleep(1)
 import titlescreen
 
 done = False
+addstreak = False
 w = False
 a = False
 s = False
@@ -122,16 +123,19 @@ while not done:
     screen.blit(bomb, bomb2)
     if player.colliderect(flag):
         score+=streak
-        streak+=1
+        if addstreak == True:
+            streak+=1
+        else:
+            streak+=0
         print("collided")
         comp = True
     if player.colliderect(bomb1):
-        score-=5
+        score-=20
         print("collided")
         comp = True
         streak = 1
     if player.colliderect(bomb2):
-        score-=5
+        score-=20
         print("collided")
         comp = True
         streak = 1
