@@ -27,6 +27,9 @@ pygame.display.update()
 done3 = False
 while not done3:
     for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
             if load.collidepoint(mouse_pos):
@@ -51,6 +54,9 @@ text = ""
 while not done3:
     pygame.draw.rect(screen, WHITE, inputbox)
     for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
             if inputbox.collidepoint(mouse_pos):
