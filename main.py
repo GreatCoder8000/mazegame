@@ -1,4 +1,4 @@
-import pygame, time, savehelper,createmaze
+import pygame, time, savehelper,createmaze,sys
 from savehelper import *
 #nice
 pygame.init()
@@ -71,23 +71,26 @@ while not done:
     scorebox = pygame.Rect(50, 50, 50, 50)
     screen.blit(scoret,scorebox)
     for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_w:
+            if event.key == pygame.K_w or event.key == pygame.K_UP:
                 w = True
-            if event.key == pygame.K_a:
+            if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 a = True
-            if event.key == pygame.K_s:
+            if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                 s = True
-            if event.key == pygame.K_d:
+            if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 d = True
         if event.type == pygame.KEYUP:
-            if event.key == pygame.K_w:
+            if event.key == pygame.K_w or event.key == pygame.K_UP:
                 w = False
-            if event.key == pygame.K_a:
+            if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 a = False
-            if event.key == pygame.K_s:
+            if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                 s = False
-            if event.key == pygame.K_d:
+            if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 d = False
     if w == True:
         playerx-=5
