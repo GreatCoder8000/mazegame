@@ -27,11 +27,11 @@ def createmaze():
             tempbombx = random.randint(0, 750)
             tempbomby = random.randint(0, 550)
             tempbomb = pygame.Rect(tempbombx, tempbomby, 50, 50)
-        bomb = [tempbombx,tempbomby]
-        bombs.append(bomb)
-        print(bombs)
+        bomb11 = tempbombx
+        bomb22 = tempbomby
+        bombs.append(bomb11)
+        bombs.append(bomb22)
 
-    print("one point gained")
     save(playerx,"playerx")
     save(playery,"playery")
     save(flagx,"flagx")

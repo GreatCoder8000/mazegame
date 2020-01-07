@@ -121,9 +121,9 @@ while not done:
             comp = True
             streak = 1
     else:
-        for yeetus in range(numberofbombs):
-            bombx = int(bombs[numberofbombs][0])
-            bomby = int(bombs[numberofbombs][1])
+        for b in range(numberofbombs):
+            bombx = int(bombs[(b+1)*2-2])
+            bomby = int(bombs[(b+1)*2-1])
             bomb = pygame.Rect(bombx, bomby, 50, 50)
             screen.blit(bombimage, bomb)
             if player.colliderect(bomb):
