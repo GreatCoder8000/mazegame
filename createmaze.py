@@ -1,45 +1,39 @@
 import random, savehelper, pygame
 from savehelper import *
 complete = True
+
 def createmaze():
     complete = False
     playerx = int(loadvar("playerx"))
     playery = int(loadvar("playery"))
     flagx = int(loadvar("flagx"))
     flagy = int(loadvar("flagy"))
-    bomb1x = int(loadvar("bomb1x"))
-    bomb1y = int(loadvar("bomb1y"))
-    bomb2x = int(loadvar("bomb2x"))
-    bomb2y = int(loadvar("bomb2y"))
     score = int(loadvar("score"))
+    bombs = loadstring("bombs")
     complete =bool(loadvar("complete"))
+    numberofbombs = round(score/100)+1
     flagx = random.randint(0,750)
     flagy = random.randint(0,550)
-    bomb1x = random.randint(0, 750)
-    bomb1y = random.randint(0, 550)
-    bomb2x = random.randint(0, 750)
-    bomb2y = random.randint(0, 550)
+    bombs = []
+    for lmao in range(numberofbombs):
+        tempbombx = random.randint(0, 750)
+        tempbomby = random.randint(0, 550)
+        tempbomb = pygame.Rect(tempbombx, tempbomby, 50, 50)
+        while flag.colliderect(bomb1) or player.colliderect(bomb1):
+            tempbombx = random.randint(0, 750)
+            tempbomby = random.randint(0, 550)
+            tempbomb1 = pygame.Rect(tempbombx, tempbomby, 50, 50)
+        bomb = [tempbombx,tempbomby]
+        bombs.append(bomb)
+        print(bombs)
     flag = pygame.Rect(flagx, flagy, 50, 50)
-    bomb1 = pygame.Rect(bomb1x, bomb1y, 50, 50)
-    bomb2 = pygame.Rect(bomb2x, bomb2y, 50, 50)
     player=pygame.Rect(playery,playerx,50,50)
-    while flag.colliderect(bomb1) or player.colliderect(bomb1):
-        bomb1x = random.randint(0, 750)
-        bomb1y = random.randint(0, 550)
-        bomb1 = pygame.Rect(bomb1x, bomb1y, 50, 50)
-    while flag.colliderect(bomb2) or player.colliderect(bomb2):
-        bomb2x = random.randint(0, 750)
-        bomb2y = random.randint(0, 550)
-        bomb2 = pygame.Rect(bomb2x, bomb2y, 50, 50)
     print("one point gained")
     save(playerx,"playerx")
     save(playery,"playery")
     save(flagx,"flagx")
     save(flagy,"flagy")
-    save(bomb1x, "bomb1x")
-    save(bomb1y, "bomb1y")
-    save(bomb2x, "bomb2x")
-    save(bomb2y, "bomb2y")
+    save(bombs, "bombs")
     save(score, "score")
     save(complete,"complete")
     saveall()
