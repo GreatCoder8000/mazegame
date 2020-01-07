@@ -1,6 +1,6 @@
 import pygame, time, savehelper,createmaze
 from savehelper import *
-
+#nice
 pygame.init()
 
 #vars
