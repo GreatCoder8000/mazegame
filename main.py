@@ -23,7 +23,7 @@ pygame.init()
 
 flagimage = pygame.image.load('flags.png').convert_alpha()
 turtle = pygame.image.load('turtle.png').convert_alpha()
-bomb = pygame.image.load('bomb.png').convert_alpha()
+bombimage = pygame.image.load('bomb.png').convert_alpha()
 
 screen.fill(WHITE)
 pygame.display.update()
@@ -45,10 +45,7 @@ playery = int(loadvar("playery"))
 flagx = int(loadvar("flagx"))
 flagy = int(loadvar("flagy"))
 score = int(loadvar("score"))
-bomb1x = int(loadvar("bomb1x"))
-bomb1y = int(loadvar("bomb1y"))
-bomb2x = int(loadvar("bomb2x"))
-bomb2y = int(loadvar("bomb2y"))
+bombs = loadlist("bombs")
 while not done:
     if comp == True:
         save(streak,"streak")
@@ -56,11 +53,9 @@ while not done:
         save(playery,"playery")
         save(flagx,"flagx")
         save(flagy,"flagy")
-        save(bomb1x, "bomb1x")
-        save(bomb1y, "bomb1y")
-        save(bomb2x, "bomb2x")
-        save(bomb2y, "bomb2y")
+        save(bombs, "bombs")
         save(score, "score")
+        saveall()
         createmaze.createmaze()
         comp = False
         playerx = int(loadvar("playerx"))
@@ -68,10 +63,7 @@ while not done:
         flagx = int(loadvar("flagx"))
         flagy = int(loadvar("flagy"))
         score = int(loadvar("score"))
-        bomb1x = int(loadvar("bomb1x"))
-        bomb1y = int(loadvar("bomb1y"))
-        bomb2x = int(loadvar("bomb2x"))
-        bomb2y = int(loadvar("bomb2y"))
+        bombs = loadlist("bombs")
         streak = int(loadvar("streak"))
     screen.fill(WHITE)
     #start of loop
@@ -115,12 +107,32 @@ while not done:
         playery = 800
     player=pygame.Rect(playery,playerx,50,50)
     flag=pygame.Rect(flagx,flagy,50,50)
-    bomb1 = pygame.Rect(bomb1x, bomb1y, 50, 50)
-    bomb2 = pygame.Rect(bomb2x, bomb2y, 50, 50)
+    numberofbombs = round(score / 100) + 1
+    if score <= 0:
+        numberofbombs = 0
+    if numberofbombs == 1:
+        bombx = int(bombs[0])
+        bomby = int(bombs[1])
+        bomb = pygame.Rect(bombx, bomby, 50, 50)
+        screen.blit(bombimage, bomb)
+        if player.colliderect(bomb):
+            score -= 20
+            print("collided")
+            comp = True
+            streak = 1
+    else:
+        for yeetus in range(numberofbombs):
+            bombx = int(bombs[numberofbombs][0])
+            bomby = int(bombs[numberofbombs][1])
+            bomb = pygame.Rect(bombx, bomby, 50, 50)
+            screen.blit(bombimage, bomb)
+            if player.colliderect(bomb):
+                score -= 20
+                print("collided")
+                comp = True
+                streak = 1
     screen.blit(flagimage,flag)
     screen.blit(turtle,player)
-    screen.blit(bomb,bomb1)
-    screen.blit(bomb, bomb2)
     if player.colliderect(flag):
         score+=streak
         if addstreak == True:
@@ -131,16 +143,6 @@ while not done:
             addstreak = True
         print("collided")
         comp = True
-    if player.colliderect(bomb1):
-        score-=20
-        print("collided")
-        comp = True
-        streak = 1
-    if player.colliderect(bomb2):
-        score-=20
-        print("collided")
-        comp = True
-        streak = 1
     #end of loop
     pygame.display.update()
     clock.tick(180)
