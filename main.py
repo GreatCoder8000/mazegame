@@ -140,7 +140,8 @@ while not done:
     screen.blit(scoret, scorebox)
     if player.colliderect(flag):
         score+=streak
-        streak+=1
+        streak*=1.5
+        streak = round(streak)
         addstreak = True
         print("collided")
         comp = True
