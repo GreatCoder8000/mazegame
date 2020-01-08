@@ -25,6 +25,7 @@ flagimage = pygame.image.load('flags.png').convert_alpha()
 playerimagebig = pygame.image.load('banana.jpeg')
 bombimage = pygame.image.load('bomb.png').convert_alpha()
 
+bombimage = pygame.transform.scale(bombimage, (10, 10))
 playerimage = pygame.transform.scale(playerimagebig, (50, 50))
 
 screen.fill(WHITE)
@@ -115,7 +116,7 @@ while not done:
     if numberofbombs == 1:
         bombx = int(bombs[0])
         bomby = int(bombs[1])
-        bomb = pygame.Rect(bombx, bomby, 50, 50)
+        bomb = pygame.Rect(bombx, bomby, 10, 10)
         screen.blit(bombimage, bomb)
         if player.colliderect(bomb):
             score -= 20
