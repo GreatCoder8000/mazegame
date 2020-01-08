@@ -25,7 +25,7 @@ flagimage = pygame.image.load('flags.png').convert_alpha()
 playerimagebig = pygame.image.load('banana.jpeg')
 bombimage = pygame.image.load('bomb.png').convert_alpha()
 
-playerimage = pg.transform.scale(playerimagebig, (50, 50))
+playerimage = pygame.transform.scale(playerimagebig, (50, 50))
 
 screen.fill(WHITE)
 pygame.display.update()
