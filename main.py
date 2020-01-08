@@ -22,8 +22,10 @@ GREEN = (0,255,0)
 pygame.init()
 
 flagimage = pygame.image.load('flags.png').convert_alpha()
-turtle = pygame.image.load('turtle.png').convert_alpha()
+playerimagebig = pygame.image.load('banana.jpeg')
 bombimage = pygame.image.load('bomb.png').convert_alpha()
+
+playerimage = pg.transform.scale(playerimagebig, (50, 50))
 
 screen.fill(WHITE)
 pygame.display.update()
@@ -132,7 +134,7 @@ while not done:
                 comp = True
                 streak = 1
     screen.blit(flagimage,flag)
-    screen.blit(turtle,player)
+    screen.blit(playerimage,player)
     scoret = mediumfont.render("score = " + str(score) + " streak = " + str(streak), False, (255, 0, 0))
     scorebox = pygame.Rect(50, 50, 50, 50)
     screen.blit(scoret, scorebox)
