@@ -34,7 +34,7 @@ time.sleep(1)
 import titlescreen
 
 done = False
-addstreak = False
+addstreak = True
 w = False
 a = False
 s = False
@@ -140,12 +140,8 @@ while not done:
     screen.blit(scoret, scorebox)
     if player.colliderect(flag):
         score+=streak
-        if addstreak == True:
-            streak+=1
-            addstreak = False
-        else:
-            streak+=0
-            addstreak = True
+        streak+=1
+        addstreak = True
         print("collided")
         comp = True
     #end of loop
