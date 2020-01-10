@@ -59,7 +59,7 @@ while not done:
         save(bombs, "bombs")
         save(score, "score")
         saveall()
-        createmaze.createmaze()
+        createmaze.createmaze(size)
         comp = False
         playerx = int(loadvar("playerx"))
         playery = int(loadvar("playery"))
@@ -75,7 +75,8 @@ while not done:
             pygame.quit()
             sys.exit()
         if event.type == pygame.VIDEORESIZE:
-            screen = pygame.display.set_mode((event.w, event.h),
+            size = (event.w,event.h)
+            screen = pygame.display.set_mode(size,
                                               pygame.RESIZABLE)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w or event.key == pygame.K_UP:
