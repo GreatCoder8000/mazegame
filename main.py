@@ -123,7 +123,6 @@ while not done:
         screen.blit(bombimage, bomb)
         if player.colliderect(bomb):
             score -= 20
-            print("collided")
             comp = True
             streak = 1
     else:
@@ -134,7 +133,6 @@ while not done:
             screen.blit(bombimage, bomb)
             if player.colliderect(bomb):
                 score -= 20
-                print("collided")
                 comp = True
                 streak = 1
     screen.blit(flagimage,flag)
@@ -147,7 +145,6 @@ while not done:
         streak*=1.5
         streak = round(streak)
         addstreak = True
-        print("collided")
         comp = True
     #end of loop
     pygame.display.update()
