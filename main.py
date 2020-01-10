@@ -40,7 +40,7 @@ w = False
 a = False
 s = False
 d = False
-createmaze.createmaze()
+createmaze.createmaze(size)
 comp = False
 streak = int(loadvar("streak"))
 playerx = int(loadvar("playerx"))
