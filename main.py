@@ -5,7 +5,7 @@ pygame.init()
 
 #vars
 size = (800,600)
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode(size, pygame.RESIZABLE)
 smallfont = pygame.font.SysFont('Comic Sans MS', 20)
 mediumfont = pygame.font.SysFont('Comic Sans MS', 30)
 bigfont = pygame.font.SysFont('Comic Sans MS', 45)
@@ -25,7 +25,7 @@ flagimage = pygame.image.load('flags.png').convert_alpha()
 playerimagebig = pygame.image.load('banana.jpeg')
 bombimage = pygame.image.load('bomb.png').convert_alpha()
 
-bombimage = pygame.transform.scale(bombimage, (10, 10))
+bombimage = pygame.transform.scale(bombimage, (30, 30))
 playerimage = pygame.transform.scale(playerimagebig, (50, 50))
 
 screen.fill(WHITE)
@@ -74,6 +74,9 @@ while not done:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.VIDEORESIZE:
+            screen = pygame.display.set_mode((event.w, event.h),
+                                              pygame.RESIZABLE)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w or event.key == pygame.K_UP:
                 w = True
@@ -116,7 +119,7 @@ while not done:
     if numberofbombs == 1:
         bombx = int(bombs[0])
         bomby = int(bombs[1])
-        bomb = pygame.Rect(bombx, bomby, 10, 10)
+        bomb = pygame.Rect(bombx, bomby, 30, 30)
         screen.blit(bombimage, bomb)
         if player.colliderect(bomb):
             score -= 20
