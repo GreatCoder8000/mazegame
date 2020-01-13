@@ -106,12 +106,12 @@ while not done:
         playery+=5
     if playerx <= 0:
         playerx =0
-    if playerx >= 600:
-        playerx =600
+    if playerx >= size[1]:
+        playerx = size[1]
     if playery <= 0:
         playery =0
-    if playery >= 800:
-        playery = 800
+    if playery >= size[0]:
+        playery = size[0]
     player=pygame.Rect(playery,playerx,50,50)
     flag=pygame.Rect(flagx,flagy,50,50)
     numberofbombs = round(score / 50) + 1
