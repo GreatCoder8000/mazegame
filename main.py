@@ -49,6 +49,7 @@ flagx = int(loadvar("flagx"))
 flagy = int(loadvar("flagy"))
 score = int(loadvar("score"))
 bombs = loadlist("bombs")
+mouse = pygame.RECT(1,1,1,1)
 while not done:
     if comp == True:
         save(streak,"streak")
@@ -96,6 +97,8 @@ while not done:
                 s = False
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 d = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse = pygame.RECT(event.w,event.h,1,1)
     if w == True:
         playerx-=5
     if a == True:
@@ -114,6 +117,7 @@ while not done:
         playery = size[0]
     player=pygame.Rect(playery,playerx,50,50)
     flag=pygame.Rect(flagx,flagy,50,50)
+    dead=pygame.Rect(flagx,flagy,50,50)
     numberofbombs = round(score / 50) + 1
     if score <= 0:
         numberofbombs = 0
@@ -136,8 +140,13 @@ while not done:
                 score -= 20
                 comp = True
                 streak = 1
+            if mouse.colliderect(bomb):
+                bombs[(b+1)*2-2] = 0
+                bombs[(b+1)*2-1] = 0
     screen.blit(flagimage,flag)
     screen.blit(playerimage,player)
+    save(bombs, "bombs")
+    saveall()
     scoret = mediumfont.render("score = " + str(score) + " streak = " + str(streak), False, (255, 0, 0))
     scorebox = pygame.Rect(50, 50, 50, 50)
     screen.blit(scoret, scorebox)
