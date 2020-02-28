@@ -1,4 +1,4 @@
-import pygame, time, savehelper,createmaze,sys
+import pygame, time, savehelper,createmaze,sys, math
 from savehelper import *
 #nice
 pygame.init()
@@ -143,8 +143,8 @@ while not done:
     screen.blit(scoret, scorebox)
     if player.colliderect(flag):
         score+=streak
-        streak*=1.5
-        streak = round(streak)
+        streak*=1.1
+        streak = math.ceil(streak)
         addstreak = True
         comp = True
     #end of loop
