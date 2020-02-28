@@ -99,7 +99,7 @@ while not done:
                 d = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             mousew,mouseh = event.pos
-            mouse = pygame.Rect(mouseh,mousew,1,1)
+            mouse = pygame.Rect(mousew,mouseh,1,1)
     if w == True:
         playerx-=5
     if a == True:
@@ -142,6 +142,7 @@ while not done:
                 comp = True
                 streak = 1
             if mouse.colliderect(bomb):
+                print("activated")
                 bombs[(b+1)*2-2] = 0
                 bombs[(b+1)*2-1] = 0
     screen.blit(flagimage,flag)
