@@ -49,7 +49,7 @@ flagx = int(loadvar("flagx"))
 flagy = int(loadvar("flagy"))
 score = int(loadvar("score"))
 bombs = loadlist("bombs")
-mouse = pygame.RECT(1,1,1,1)
+mouse = pygame.Rect(1,1,1,1)
 while not done:
     if comp == True:
         save(streak,"streak")
