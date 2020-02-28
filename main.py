@@ -98,7 +98,8 @@ while not done:
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 d = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse = pygame.Rect(event.w,event.h,1,1)
+            mousew,mouseh = event.pos
+            mouse = pygame.Rect(mousew,mouseh,1,1)
     if w == True:
         playerx-=5
     if a == True:
